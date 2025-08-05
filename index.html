@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teste Unitário</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #f0f8ff;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+      }
+
+      h1 {
+        position: absolute;
+        top: 20px;
+        width: 100%;
+        font-size: 2em;
+        color: #333;
+        background-color: #cce5ff;
+        padding: 20px 0;
+        margin: 0;
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .mensagem {
+        font-size: 1.5em;
+        color: #333;
+        max-width: 600px;
+        margin-top: 100px;
+      }
+
+      @media (max-width: 600px) {
+        .mensagem {
+          font-size: 1.2em;
+          padding: 0 10px;
+        }
+
+        h1 {
+          font-size: 1.5em;
+          padding: 15px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Teste Unitário - Multiplicação</h1>
+    <div class="mensagem">
+      Abra o <strong>inspecionar do navegador</strong> (F12) e olhe o console para ver os resultados dos testes.
+    </div>
+
+    <script>
+      function multiplicacao(a, b) {
+        return a * b;  
+      }
+
+      function testeCalculo() {
+        function assertEquals(resultado, esperado, descricao) {
+          if (resultado === esperado) {
+            console.log(` ${descricao}: passou`);
+          } else {
+            console.error(` ${descricao}: esperado ${esperado}, mas recebeu ${resultado}`);
+          }
+        }
+
+        assertEquals(multiplicacao(2, 3), 6, "Teste 1 - Dois positivos");
+        assertEquals(multiplicacao(-2, 2), -4, "Teste 2 - Um negativo");
+        assertEquals(multiplicacao(2, 0), 0, "Teste 3 - Um zero");
+        assertEquals(multiplicacao(-2, -3), 6, "Teste 4 - Dois negativos");
+      }
+
+      testeCalculo();
+    </script>
+  </body>
+</html>
